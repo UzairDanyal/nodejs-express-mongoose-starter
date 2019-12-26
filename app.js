@@ -39,8 +39,14 @@ app.get('/',  function (req, res) {
   res.status(200).send({
     message: 'Express backend server'});
 });
+// Requiring Routes
 
+//const UsersRoutes = require('./routes/users.routes');
+const BooksRoutes = require('./routes/books.routes');
 app.set('port', (3000));
+// Routes which should handle requests
+app.use("/users",UsersRoutes);
+app.use("/books",BooksRoutes);
 
 app.use(accessControls);
 app.use(cors());
